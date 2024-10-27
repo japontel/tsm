@@ -13,7 +13,23 @@ return new class extends Migration
     {
         Schema::create('transactions', function (Blueprint $table) {
             $table->id();
+            $table->string('transaction_id')->unique();
+            $table->string('account_number_from');
+            $table->string('account_number_type_from');
+            $table->string('account_number_to');
+            $table->string('account_number_type_to');
+            $table->string('trace_number')->unique();
+            $table->decimal('amount', 15, 2);
+            $table->enum('type', ['credit', 'debit']);
+            $table->string('description')->nullable();
+            $table->string('reference')->nullable();
+            $table->date('creation_date');
             $table->timestamps();
+            
+            // Índices para optimización
+            $table->index('trace_number');
+            $table->index('type');
+            $table->index('creation_date');
         });
     }
 
