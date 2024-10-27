@@ -8,16 +8,13 @@ services:
       dockerfile: Dockerfile
     volumes:
       - ./backend:/var/www/html
-      - ./backend/vendor:/var/www/html/vendor
-    depends_on:
-      - db
-    networks:
-      - app-network
     environment:
       - DB_HOST=db
       - DB_DATABASE=transactions_db
       - DB_USERNAME=user
       - DB_PASSWORD=password
+    networks:
+      - app-network
 
   # Nginx service
   nginx:
