@@ -6,9 +6,6 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
-    /**
-     * Run the migrations.
-     */
     public function up(): void
     {
         Schema::create('transactions', function (Blueprint $table) {
@@ -23,18 +20,13 @@ return new class extends Migration
             $table->enum('type', ['credit', 'debit']);
             $table->string('description')->nullable();
             $table->string('reference')->nullable();
-            $table->date('creation_date');
+            $table->timestamp('creation_date');
             $table->timestamps();
             
-            $table->index('trace_number');
-            $table->index('type');
-            $table->index('creation_date');
+            $table->index(['trace_number', 'type', 'creation_date']);
         });
     }
 
-    /**
-     * Reverse the migrations.
-     */
     public function down(): void
     {
         Schema::dropIfExists('transactions');
