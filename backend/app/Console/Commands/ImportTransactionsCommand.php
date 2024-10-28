@@ -2,43 +2,19 @@
 
 namespace App\Console\Commands;
 
+use App\Models\Transaction;
 use Illuminate\Console\Command;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Str;
 
 class ImportTransactionsCommand extends Command
 {
-    // /**
-    //  * The name and signature of the console command.
-    //  *
-    //  * @var string
-    //  */
-    // protected $signature = 'app:import-transactions-command';
-
-    // /**
-    //  * The console command description.
-    //  *
-    //  * @var string
-    //  */
-    // protected $description = 'Command description';
-
-    // /**
-    //  * Execute the console command.
-    //  */
-    // public function handle()
-    // {
-    //     //
-    // }
-
-    protected $signature = 'transactions:import {file}';
+    protected $signature = 'transactions:import';
     protected $description = 'Import transactions from CSV file';
 
     public function handle()
     {
-        $file = $this->argument('file');
-
-        if (!file_exists($file)) {
-            $this->error("File does not exist!");
-            return 1;
-        }
+        $file = storage_path('app/transactions.csv');
 
         $this->info("Starting import...");
 
@@ -46,15 +22,14 @@ class ImportTransactionsCommand extends Command
 
         try {
             $handle = fopen($file, 'r');
-            $header = fgetcsv($handle); // Leer encabezados
-            $batch = [];
+            $header = fgetcsv($handle);
             $batchSize = 1000;
             $totalImported = 0;
 
             while (($row = fgetcsv($handle)) !== false) {
                 $data = array_combine($header, $row);
                 $data['transaction_id'] = 'TXN-' . Str::random(10);
-                $data['trace_number'] = 'TRC-' . time() . '-' . Str::random(5);
+                $data['trace_number'] = 'TRC-' . time() . '-' . Str::random(10);
 
                 $batch[] = $data;
 
@@ -66,7 +41,7 @@ class ImportTransactionsCommand extends Command
                 }
             }
 
-            // Insertar el último lote
+            // Insert last batch
             if (!empty($batch)) {
                 Transaction::insert($batch);
                 $totalImported += count($batch);

@@ -26,7 +26,6 @@ return new class extends Migration
             $table->date('creation_date');
             $table->timestamps();
             
-            // Índices para optimización
             $table->index('trace_number');
             $table->index('type');
             $table->index('creation_date');

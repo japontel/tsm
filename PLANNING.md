@@ -5,51 +5,50 @@ Development of a full-stack Transaction Management System using PHP backend, Rea
 
 ## Task Breakdown & Time Estimates
 
-### 1. Initial Setup and Configuration (2 days)
-- [ ] Create GitHub repository and provide access to dsalazar@blossom.net (30 min)
-- [ ] Create basic project structure (1 hour)
-- [ ] Set up Docker environment (1 day)
+### 1. Initial Setup and Configuration (4 hours)
+- [ ] Create GitHub repository and provide access to dsalazar@blossom.net
+- [ ] Create basic project structure
+- [ ] Set up Docker environment
   - Docker configuration for PHP/MySQL/Nginx
   - Container separation for backend, frontend, and database
   - Network configuration
-- [ ] Write initial README.md with setup instructions (2 hours)
+- [ ] Write initial README.md with setup instructions
 
-### 2. Backend Development (4 days)
+### 2. Backend Development (1 hours)
 #### Database Setup
-- [ ] Design and create database schema (2 hours)
-- [ ] Set up migrations (2 hours)
+- [ ] Design and create database schema
+- [ ] Set up migrations
 
-#### API Development
-- [ ] Implement transaction creation endpoint (1 day)
+#### API Development (2 hours)
+- [ ] Implement transaction creation endpoint
   - Input validation
   - Trace number generation system
   - Error handling
-- [ ] Implement transaction listing endpoint with filters (1 day)
+- [ ] Implement transaction listing endpoint with filters
   - Pagination
   - Date range filtering
   - Transaction type filtering
-- [ ] Implement transaction deletion endpoint (4 hours)
-- [ ] Write API documentation (4 hours)
+- [ ] Implement transaction deletion endpoint
+- [ ] Write API documentation
 
-### 3. Frontend Development (4 days)
-- [ ] Set up React project structure (4 hours)
-- [ ] Create dashboard component (1 day)
+### 3. Frontend Development (3 hours)
+- [ ] Set up React project structure 
+- [ ] Create dashboard component
   - Transaction list view
   - Sorting functionality
   - Filtering controls
-- [ ] Implement transaction creation form (1 day)
-- [ ] Add delete transaction functionality (4 hours)
-- [ ] Style components and ensure responsiveness (1 day)
+- [ ] Implement transaction creation form
+- [ ] Add delete transaction functionality
+- [ ] Style components and ensure responsiveness
 
-### 4. Performance Optimization (3 days)
-- [ ] Develop CSV import script (1 day)
-- [ ] Implement batch processing for large datasets (1 day)
-- [ ] Performance testing and optimization (1 day)
+### 4. Performance Optimization (4 hours)
+- [ ] Develop CSV import script
+- [ ] Implement batch processing for large datasets
+- [ ] Performance testing and optimization
 - [ ] Document findings in PERFORMANCE.md
 
-### 5. Testing and Documentation (2 days)
+### 5. Testing and Documentation (2 hours)
 - [ ] Write unit tests for backend (1 day)
-- [ ] Write unit tests for frontend (4 hours)
 - [ ] Complete CODE_REVIEW.md for txnExportService.php (4 hours)
 
 ## Dependencies and Resources Needed
@@ -76,7 +75,7 @@ Development of a full-stack Transaction Management System using PHP backend, Rea
 - Jest for frontend testing
 - Postman for API testing
 
-## Total Estimated Time: 15 days
+## Total Estimated Time: 16 Hours
 
 ## Risk Factors and Mitigation Strategies
 1. **Data Volume Handling**
