@@ -259,7 +259,7 @@ This project is licensed under the MIT License - see the LICENSE.md file for det
 
 ## 👥 Authors
 
-- [Your Name](https://github.com/japontel/tsm)
+- Jose Aponte (https://github.com/japontel/tsm)
 
 ## 🙏 Acknowledgments
 
